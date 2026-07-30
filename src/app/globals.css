@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette */
+  --color-ink: #111111;
+  --color-charcoal: #1b1e20;
+  --color-steel: #4b5563;
+  --color-steel-light: #8b93a1;
+  --color-plate: #e9e7e2;
+  --color-plate-dark: #d8d5cd;
+  --color-orange: #f97316;
+  --color-orange-dark: #c2570a;
+  --color-blue: #2563eb;
+  --color-white: #ffffff;
+
+  /* Type */
+  --font-display: "Archivo", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scanline signature motif */
+@keyframes scan-sweep {
+  0% { transform: translateY(-10%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-orange) 20%, var(--color-orange) 80%, transparent);
+  box-shadow: 0 0 12px 1px rgba(249, 115, 22, 0.6);
+  animation: scan-sweep 6s ease-in-out infinite;
+}
+
+/* Hairline spec-sheet divider */
+.hairline {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--color-steel) 0 6px, transparent 6px 10px);
+  opacity: 0.5;
+}
+
+/* Corner-bracket card, like a diagnostic viewfinder */
+.bracket-card {
+  position: relative;
+}
+.bracket-card::before,
+.bracket-card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-orange);
+  transition: all 0.25s ease;
+}
+.bracket-card::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.bracket-card::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+.bracket-card:hover::before,
+.bracket-card:hover::after {
+  width: 22px;
+  height: 22px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Visible focus rings for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
