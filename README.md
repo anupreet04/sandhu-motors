@@ -75,7 +75,10 @@ http://localhost:3000
 
 ## 📸 Screenshots
 
-Add screenshots of the homepage and other pages here.
+<img width="1849" height="838" alt="Screenshot 2026-08-05 133950" src="https://github.com/user-attachments/assets/fbd16efd-5dde-4319-b922-bbe65c6da9da" />
+<img width="1867" height="851" alt="Screenshot 2026-08-05 134012" src="https://github.com/user-attachments/assets/a57538ad-7071-48c9-accb-38bb60705d66" />
+
+
 
 ## 🚀 Deployment
 
